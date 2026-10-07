@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | EduTrack</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <main class="auth-page">
+    <div class="auth-card">
+
+      <header class="auth-header">
+        <div class="auth-logo">ET</div>
+        <h1>Create your account</h1>
+        <p>Join EduTrack to follow your courses and grades</p>
+      </header>
+
+      <!-- novalidate turns off the browser's own validation so our JavaScript handles it -->
+      <form id="registerForm" novalidate>
+
+        <!-- One message for the whole form, shown by JS when something goes wrong -->
+        <div id="formAlert" class="alert hidden"></div>
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Hind Bundoq">
+          <span class="error-text hidden" id="fullNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="hind@example.com">
+          <span class="error-text hidden" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="studentId">Student ID</label>
+          <input type="text" id="studentId" placeholder="S1001">
+          <span class="error-text hidden" id="studentIdError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="At least 6 characters">
+          <span class="error-text hidden" id="passwordError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Repeat your password">
+          <span class="error-text hidden" id="confirmPasswordError"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="registerButton">
+          Create Account
+        </button>
+
+      </form>
+
+      <footer class="auth-footer">
+        <p>Already have an account? <a href="index.html">Log in</a></p>
+      </footer>
+
+    </div>
+  </main>
+
+</body>
+</html>
