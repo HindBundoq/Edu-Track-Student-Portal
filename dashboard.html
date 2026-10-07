@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | EduTrack</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <div class="topbar-logo">ET</div>
+      <span>EduTrack</span>
+    </div>
+    <button class="btn btn-outline" id="logoutButton">Log out</button>
+  </header>
+
+  <main class="page">
+
+    <section class="welcome">
+      <!-- The name is filled in by JavaScript from the session -->
+      <h1>Welcome back, <span id="welcomeName">student</span></h1>
+      <p>Here is everything on your record.</p>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>My Profile</h2>
+        <button class="btn btn-outline" id="editProfileButton">Edit Profile</button>
+      </div>
+
+      <div class="profile-details">
+        <div class="profile-row">
+          <span class="profile-label">Full Name</span>
+          <span class="profile-value" id="profileName">&mdash;</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Email</span>
+          <span class="profile-value" id="profileEmail">&mdash;</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Student ID</span>
+          <span class="profile-value" id="profileStudentId">&mdash;</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Logged in</span>
+          <span class="profile-value" id="profileLoginTime">&mdash;</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>My Courses</h2>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Teacher</th>
+              <th class="score">Score</th>
+            </tr>
+          </thead>
+          <!-- Rows are added by JavaScript -->
+          <tbody id="coursesBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Covers both "still loading" and "no courses yet" -->
+      <p class="table-message" id="coursesMessage">Loading your courses&hellip;</p>
+    </section>
+
+  </main>
+
+</body>
+</html>
