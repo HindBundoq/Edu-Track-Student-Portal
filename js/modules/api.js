@@ -21,9 +21,12 @@ export async function getStudentByEmail(email) {
   return students[0];
 }
 
-/* Same idea, but searches by the student ID like "S1001". */
-export async function getStudentByStudentId(studentId) {
-  const response = await fetch(`${BASE_URL}/students?studentId=${encodeURIComponent(studentId)}`);
+/* Same idea, but searches by the student number like "S1001".
+   The field is called studentNumber and not studentId, because
+   json-server treats any field ending in Id as a link to another
+   table and deletes rows whose link points nowhere. */
+export async function getStudentByNumber(studentNumber) {
+  const response = await fetch(`${BASE_URL}/students?studentNumber=${encodeURIComponent(studentNumber)}`);
 
   if (!response.ok) {
     throw new Error("Could not reach the server");

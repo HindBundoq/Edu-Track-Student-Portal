@@ -4,33 +4,83 @@
       "id": 1,
       "fullName": "Hind Bundoq",
       "email": "hind@example.com",
-      "studentId": "S1001",
+      "studentNumber": "S1001",
       "password": "Hind@123"
     },
     {
       "id": 2,
       "fullName": "Omar Saleh",
       "email": "omar@example.com",
-      "studentId": "S1002",
+      "studentNumber": "S1002",
       "password": "Omar@123"
     }
   ],
   "teachers": [
-    { "id": 1, "name": "Mr. Khaled Nasser" },
-    { "id": 2, "name": "Ms. Rana Haddad" },
-    { "id": 3, "name": "Mr. Samir Fares" }
+    {
+      "id": 1,
+      "name": "Mr. Khaled Nasser"
+    },
+    {
+      "id": 2,
+      "name": "Ms. Rana Haddad"
+    },
+    {
+      "id": 3,
+      "name": "Mr. Samir Fares"
+    }
   ],
   "courses": [
-    { "id": 1, "title": "HTML & CSS Basics", "teacherId": 1 },
-    { "id": 2, "title": "JavaScript Fundamentals", "teacherId": 2 },
-    { "id": 3, "title": "Responsive Web Design", "teacherId": 1 },
-    { "id": 4, "title": "Git & GitHub", "teacherId": 3 }
+    {
+      "id": 1,
+      "title": "HTML & CSS Basics",
+      "teacherId": 1
+    },
+    {
+      "id": 2,
+      "title": "JavaScript Fundamentals",
+      "teacherId": 2
+    },
+    {
+      "id": 3,
+      "title": "Responsive Web Design",
+      "teacherId": 1
+    },
+    {
+      "id": 4,
+      "title": "Git & GitHub",
+      "teacherId": 3
+    }
   ],
   "enrollments": [
-    { "id": 1, "studentId": "S1001", "courseId": 1, "score": 92 },
-    { "id": 2, "studentId": "S1001", "courseId": 2, "score": 85 },
-    { "id": 3, "studentId": "S1001", "courseId": 3, "score": 78 },
-    { "id": 4, "studentId": "S1002", "courseId": 1, "score": 88 },
-    { "id": 5, "studentId": "S1002", "courseId": 4, "score": 95 }
+    {
+      "id": 1,
+      "studentNumber": "S1001",
+      "courseId": 1,
+      "score": 92
+    },
+    {
+      "id": 2,
+      "studentNumber": "S1001",
+      "courseId": 2,
+      "score": 85
+    },
+    {
+      "id": 3,
+      "studentNumber": "S1001",
+      "courseId": 3,
+      "score": 78
+    },
+    {
+      "id": 4,
+      "studentNumber": "S1002",
+      "courseId": 1,
+      "score": 88
+    },
+    {
+      "id": 5,
+      "studentNumber": "S1002",
+      "courseId": 4,
+      "score": 95
+    }
   ]
 }

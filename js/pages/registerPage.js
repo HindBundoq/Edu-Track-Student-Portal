@@ -6,7 +6,7 @@
 
 import { isEmpty, isValidEmail, isLongEnough, doPasswordsMatch }
   from "../modules/validation.js";
-import { getStudentByEmail, getStudentByStudentId }
+import { getStudentByEmail, getStudentByNumber }
   from "../modules/api.js";
 
 const form = document.getElementById("registerForm");
@@ -65,7 +65,7 @@ function validateForm(student, confirmPassword) {
     isValid = false;
   }
 
-  if (isEmpty(student.studentId)) {
+  if (isEmpty(student.studentNumber)) {
     showFieldError("studentId", "Student ID is required");
     isValid = false;
   }
@@ -100,8 +100,8 @@ async function isNotTaken(student) {
     isFree = false;
   }
 
-  const studentWithSameId = await getStudentByStudentId(student.studentId);
-  if (studentWithSameId) {
+  const studentWithSameNumber = await getStudentByNumber(student.studentNumber);
+  if (studentWithSameNumber) {
     showFieldError("studentId", "This student ID is already registered");
     isFree = false;
   }
@@ -116,7 +116,7 @@ form.addEventListener("submit", async function (event) {
   const student = {
     fullName: document.getElementById("fullName").value.trim(),
     email: document.getElementById("email").value.trim(),
-    studentId: document.getElementById("studentId").value.trim(),
+    studentNumber: document.getElementById("studentId").value.trim(),
     password: document.getElementById("password").value
   };
   const confirmPassword = document.getElementById("confirmPassword").value;
