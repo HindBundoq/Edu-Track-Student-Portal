@@ -6,7 +6,7 @@
 
 import { isEmpty, isValidEmail, isLongEnough, doPasswordsMatch }
   from "../modules/validation.js";
-import { getStudentByEmail, getStudentByNumber }
+import { getStudentByEmail, getStudentByNumber, createStudent }
   from "../modules/api.js";
 
 const form = document.getElementById("registerForm");
@@ -133,7 +133,17 @@ form.addEventListener("submit", async function (event) {
   registerButton.textContent = "Checking...";
 
   try {
-    await isNotTaken(student);
+    const isFree = await isNotTaken(student);
+
+    if (isFree) {
+      registerButton.textContent = "Creating...";
+      await createStudent(student);
+
+      /* Send the new student to the login page.
+         The flag tells that page to show a welcome message. */
+      window.location.href = "index.html?registered=true";
+      return;
+    }
   } catch (error) {
     showFormAlert("Cannot reach the server. Is json-server running?");
   }
