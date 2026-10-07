@@ -6,9 +6,12 @@
 
 import { isEmpty, isValidEmail, isLongEnough, doPasswordsMatch }
   from "../modules/validation.js";
+import { getStudentByEmail, getStudentByStudentId }
+  from "../modules/api.js";
 
 const form = document.getElementById("registerForm");
 const formAlert = document.getElementById("formAlert");
+const registerButton = document.getElementById("registerButton");
 
 /* Shows a red message under one field and marks the input. */
 function showFieldError(fieldId, message) {
@@ -18,6 +21,13 @@ function showFieldError(fieldId, message) {
   input.classList.add("invalid");
   errorSpan.textContent = message;
   errorSpan.classList.remove("hidden");
+}
+
+/* Shows one message at the top of the form. */
+function showFormAlert(message) {
+  formAlert.textContent = message;
+  formAlert.classList.add("alert-error");
+  formAlert.classList.remove("hidden");
 }
 
 /* Removes the errors left from the previous attempt,
@@ -79,8 +89,28 @@ function validateForm(student, confirmPassword) {
   return isValid;
 }
 
+/* Asks the server whether this email or student ID is already used.
+   Returns true when both are free. */
+async function isNotTaken(student) {
+  let isFree = true;
+
+  const studentWithSameEmail = await getStudentByEmail(student.email);
+  if (studentWithSameEmail) {
+    showFieldError("email", "This email is already registered");
+    isFree = false;
+  }
+
+  const studentWithSameId = await getStudentByStudentId(student.studentId);
+  if (studentWithSameId) {
+    showFieldError("studentId", "This student ID is already registered");
+    isFree = false;
+  }
+
+  return isFree;
+}
+
 /* Runs when the user presses the Create Account button. */
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const student = {
@@ -96,4 +126,18 @@ form.addEventListener("submit", function (event) {
   if (!validateForm(student, confirmPassword)) {
     return;
   }
+
+  /* The next checks talk to the server, which takes a moment.
+     Disabling the button stops double submits. */
+  registerButton.disabled = true;
+  registerButton.textContent = "Checking...";
+
+  try {
+    await isNotTaken(student);
+  } catch (error) {
+    showFormAlert("Cannot reach the server. Is json-server running?");
+  }
+
+  registerButton.disabled = false;
+  registerButton.textContent = "Create Account";
 });
