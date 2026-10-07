@@ -1,0 +1,214 @@
+/* ===================================================================
+   dashboard.css
+   Styles for the dashboard. This page has its own file because its
+   layout is nothing like the login and register pages.
+
+   The base styles below are for laptops and desktops.
+   The media queries at the bottom adjust them for tablet and phone.
+   =================================================================== */
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* The small square with the "ET" initials */
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Page body ---------- */
+
+/* Keeps the content centred and stops it stretching on wide screens */
+.page {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.welcome h1 {
+  font-size: 25px;
+  margin-bottom: 4px;
+}
+
+.welcome p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.card-header h2 {
+  font-size: 17px;
+}
+
+/* ---------- Profile details ---------- */
+
+/* Two details side by side, because a laptop has the room for it */
+.profile-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--space-lg);
+}
+
+/* One row per detail: label on the left, value on the right */
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: 11px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.profile-value {
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ---------- Courses table ---------- */
+
+/* Lets the table scroll sideways on a narrow phone
+   instead of breaking the layout */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 11px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* The score column sits on the right and stands out */
+.score {
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Shown while the courses are still loading, and when there are none */
+.table-message {
+  padding: var(--space-md);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* ===================================================================
+   Tablet - up to 1024px
+   There is no longer room for two columns of details, and the page
+   no longer needs a fixed width because the screen is the limit.
+   =================================================================== */
+
+@media (max-width: 1024px) {
+  .page {
+    max-width: 100%;
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+
+  /* With one column, the last row is the end of the card */
+  .profile-row:last-child {
+    border-bottom: none;
+  }
+
+  .welcome h1 {
+    font-size: 23px;
+  }
+}
+
+/* ===================================================================
+   Phone - up to 600px
+   The column is now too narrow to put a label and a long value on
+   the same line, so the value moves under its label.
+   =================================================================== */
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: var(--space-md);
+  }
+
+  .card {
+    padding: var(--space-md);
+  }
+
+  .welcome h1 {
+    font-size: 21px;
+  }
+
+  .profile-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .profile-value {
+    text-align: left;
+  }
+
+  /* A smaller table needs less sideways scrolling */
+  th, td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+}
