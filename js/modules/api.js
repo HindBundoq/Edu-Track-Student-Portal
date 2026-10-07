@@ -51,3 +51,38 @@ export async function createStudent(student) {
 
   return response.json();
 }
+
+/* The rows that say which courses this student is taking,
+   and the score for each one. */
+export async function getEnrollments(studentNumber) {
+  const response = await fetch(`${BASE_URL}/enrollments?studentNumber=${encodeURIComponent(studentNumber)}`);
+
+  if (!response.ok) {
+    throw new Error("Could not load your courses");
+  }
+
+  return response.json();
+}
+
+/* All courses. The dashboard uses them to turn a courseId
+   into a course title. */
+export async function getCourses() {
+  const response = await fetch(`${BASE_URL}/courses`);
+
+  if (!response.ok) {
+    throw new Error("Could not load the courses");
+  }
+
+  return response.json();
+}
+
+/* All teachers, used the same way to turn a teacherId into a name. */
+export async function getTeachers() {
+  const response = await fetch(`${BASE_URL}/teachers`);
+
+  if (!response.ok) {
+    throw new Error("Could not load the teachers");
+  }
+
+  return response.json();
+}
