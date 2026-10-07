@@ -55,3 +55,19 @@ export function clearSession() {
 export function isLoggedIn() {
   return getSession() !== null;
 }
+
+/* Used by the dashboard. Sends visitors who are not logged in
+   back to the login page. */
+export function requireLogin() {
+  if (!isLoggedIn()) {
+    window.location.replace("index.html");
+  }
+}
+
+/* Used by the login and register pages. Someone who is already
+   logged in has no reason to see them, so send them to the dashboard. */
+export function redirectIfLoggedIn() {
+  if (isLoggedIn()) {
+    window.location.replace("dashboard.html");
+  }
+}

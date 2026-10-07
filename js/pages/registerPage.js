@@ -8,6 +8,11 @@ import { isEmpty, isValidEmail, isLongEnough, doPasswordsMatch }
   from "../modules/validation.js";
 import { getStudentByEmail, getStudentByNumber, createStudent }
   from "../modules/api.js";
+import { redirectIfLoggedIn } from "../modules/session.js";
+
+/* Runs before anything else: a student who is already logged in
+   is sent straight to the dashboard. */
+redirectIfLoggedIn();
 
 const form = document.getElementById("registerForm");
 const formAlert = document.getElementById("formAlert");

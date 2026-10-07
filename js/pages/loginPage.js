@@ -6,7 +6,11 @@
 
 import { isEmpty, isValidEmail } from "../modules/validation.js";
 import { getStudentByEmail } from "../modules/api.js";
-import { saveSession } from "../modules/session.js";
+import { saveSession, redirectIfLoggedIn } from "../modules/session.js";
+
+/* Runs before anything else: a student who is already logged in
+   is sent straight to the dashboard. */
+redirectIfLoggedIn();
 
 const form = document.getElementById("loginForm");
 const formAlert = document.getElementById("formAlert");
