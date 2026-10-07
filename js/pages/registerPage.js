@@ -9,6 +9,7 @@ import { isEmpty, isValidEmail, isLongEnough, doPasswordsMatch }
 import { getStudentByEmail, getStudentByNumber, createStudent }
   from "../modules/api.js";
 import { redirectIfLoggedIn } from "../modules/session.js";
+import { setupPasswordToggles } from "../modules/passwordToggle.js";
 
 /* Runs before anything else: a student who is already logged in
    is sent straight to the dashboard. */
@@ -156,3 +157,5 @@ form.addEventListener("submit", async function (event) {
   registerButton.disabled = false;
   registerButton.textContent = "Create Account";
 });
+
+setupPasswordToggles();

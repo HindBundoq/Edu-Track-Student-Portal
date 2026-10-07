@@ -54,6 +54,38 @@
   color: var(--color-text-muted);
 }
 
+/* ---------- Password field with a Show button ---------- */
+
+/* position: relative makes this the box the button is placed inside */
+.password-field {
+  position: relative;
+}
+
+/* Room on the right so the text never runs under the button */
+.password-field input {
+  padding-right: 64px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 5px 8px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.password-toggle:hover {
+  background-color: var(--color-primary-light);
+}
+
 /* ---------- Remember me row ---------- */
 
 /* Puts the checkbox and its label on one line */

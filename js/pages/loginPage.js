@@ -7,6 +7,7 @@
 import { isEmpty, isValidEmail } from "../modules/validation.js";
 import { getStudentByEmail } from "../modules/api.js";
 import { saveSession, redirectIfLoggedIn } from "../modules/session.js";
+import { setupPasswordToggles } from "../modules/passwordToggle.js";
 
 /* Runs before anything else: a student who is already logged in
    is sent straight to the dashboard. */
@@ -117,3 +118,5 @@ form.addEventListener("submit", async function (event) {
   loginButton.disabled = false;
   loginButton.textContent = "Log In";
 });
+
+setupPasswordToggles();

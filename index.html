@@ -37,7 +37,10 @@
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Your password">
+          <div class="password-field">
+            <input type="password" id="password" placeholder="Your password">
+            <button type="button" class="password-toggle" data-target="password">Show</button>
+          </div>
           <span class="error-text hidden" id="passwordError"></span>
         </div>
 
