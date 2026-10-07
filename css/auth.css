@@ -1,0 +1,79 @@
+/* ===================================================================
+   auth.css
+   Styles for the two authentication pages: login and register.
+   They share this file because they look the same.
+   =================================================================== */
+
+/* Centers the card on the screen */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Header ---------- */
+
+.auth-header {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+/* The small square with the "ET" initials */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--space-md);
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.auth-header h1 {
+  font-size: 23px;
+  margin-bottom: 4px;
+}
+
+.auth-header p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Footer link ---------- */
+
+.auth-footer {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-lg) var(--space-md);
+    box-shadow: none;
+  }
+
+  .auth-header h1 {
+    font-size: 20px;
+  }
+}
