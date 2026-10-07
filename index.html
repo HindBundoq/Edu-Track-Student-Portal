@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In | EduTrack</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <main class="auth-page">
+    <div class="auth-card">
+
+      <header class="auth-header">
+        <div class="auth-logo">ET</div>
+        <h1>Welcome back</h1>
+        <p>Log in to see your courses and grades</p>
+      </header>
+
+      <!-- novalidate turns off the browser's own validation so our JavaScript handles it -->
+      <form id="loginForm" novalidate>
+
+        <!-- Used for both the "account created" message and login errors -->
+        <div id="formAlert" class="alert hidden"></div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="hind@example.com">
+          <span class="error-text hidden" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Your password">
+          <span class="error-text hidden" id="passwordError"></span>
+        </div>
+
+        <div class="remember-me">
+          <input type="checkbox" id="rememberMe">
+          <label for="rememberMe">Remember me on this device</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="loginButton">
+          Log In
+        </button>
+
+      </form>
+
+      <footer class="auth-footer">
+        <p>New to EduTrack? <a href="register.html">Create an account</a></p>
+      </footer>
+
+    </div>
+  </main>
+
+</body>
+</html>
