@@ -80,6 +80,20 @@
   font-size: 17px;
 }
 
+/* ---------- Profile edit ---------- */
+
+/* Keeps Cancel and Save side by side */
+.card-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* The small grey line under the edit form */
+.form-note {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
 /* ---------- Profile details ---------- */
 
 /* Two details side by side, because a laptop has the room for it */

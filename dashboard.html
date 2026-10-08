@@ -33,8 +33,18 @@
     <section class="card">
       <div class="card-header">
         <h2>My Profile</h2>
+
+        <!-- Only one of these two is visible at a time -->
         <button class="btn btn-outline" id="editProfileButton">Edit Profile</button>
+
+        <div class="card-actions hidden" id="editActions">
+          <button class="btn btn-outline" id="cancelEditButton">Cancel</button>
+          <button class="btn btn-primary" id="saveProfileButton" form="profileForm" type="submit">Save</button>
+        </div>
       </div>
+
+      <!-- Shown by JavaScript after a save, or when something goes wrong -->
+      <div id="profileAlert" class="alert hidden"></div>
 
       <div class="profile-details">
         <div class="profile-row">
@@ -54,6 +64,23 @@
           <span class="profile-value" id="profileLoginTime">&mdash;</span>
         </div>
       </div>
+
+      <!-- The edit form. It replaces the details above while editing. -->
+      <form id="profileForm" class="hidden" novalidate>
+        <div class="form-group">
+          <label for="editName">Full Name</label>
+          <input type="text" id="editName">
+          <span class="error-text hidden" id="editNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="editEmail">Email</label>
+          <input type="email" id="editEmail">
+          <span class="error-text hidden" id="editEmailError"></span>
+        </div>
+
+        <p class="form-note">Your student ID is given by the academy and cannot be changed.</p>
+      </form>
     </section>
 
     <section class="card">
