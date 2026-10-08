@@ -56,12 +56,32 @@ export function isLoggedIn() {
   return getSession() !== null;
 }
 
-/* Used by the dashboard. Sends visitors who are not logged in
-   back to the login page. */
+/* Saves new details into the session that is already open,
+   so the dashboard shows them without a new login.
+   It writes back to whichever storage holds the session. */
+export function updateSession(changes) {
+  const session = getSession();
+  const updated = { ...session, ...changes };
+  const sessionText = JSON.stringify(updated);
+
+  if (localStorage.getItem(SESSION_KEY)) {
+    localStorage.setItem(SESSION_KEY, sessionText);
+  } else {
+    sessionStorage.setItem(SESSION_KEY, sessionText);
+  }
+}
+
+/* Used by the dashboard. Sends visitors who are not logged in back
+   to the login page, and reports whether the page may carry on.
+   The redirect does not stop the script, so the caller has to check
+   this answer before it touches the session. */
 export function requireLogin() {
   if (!isLoggedIn()) {
     window.location.replace("index.html");
+    return false;
   }
+
+  return true;
 }
 
 /* Used by the login and register pages. Someone who is already
