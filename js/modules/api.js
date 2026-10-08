@@ -86,3 +86,20 @@ export async function getTeachers() {
 
   return response.json();
 }
+
+/* Updates one student and returns the saved record.
+   PATCH only changes the fields we send, so the password and
+   the student number stay as they are. */
+export async function updateStudent(id, changes) {
+  const response = await fetch(`${BASE_URL}/students/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(changes)
+  });
+
+  if (!response.ok) {
+    throw new Error("Could not save your changes");
+  }
+
+  return response.json();
+}
