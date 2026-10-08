@@ -172,7 +172,9 @@ a:hover {
 
 /* ---------- Helpers ---------- */
 
-/* Used by JS to show and hide elements */
+/* Used by JS to show and hide elements.
+   !important is needed so this still wins over a rule like
+   .card-actions { display: flex } that comes later in another file. */
 .hidden {
-  display: none;
+  display: none !important;
 }
